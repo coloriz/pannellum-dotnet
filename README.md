@@ -1,4 +1,4 @@
-# Pannellum in C#
+# Pannellum in C# #
 
 Pannellum Library binding for C# WPF
 
