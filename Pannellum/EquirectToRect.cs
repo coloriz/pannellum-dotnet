@@ -12,7 +12,7 @@ namespace Pannellum
 	public class EquirectToRect
 	{
 		private readonly string vertexSrc = String.Join(Environment.NewLine,
-			"#version 120 core",
+			"#version 120",
 			"attribute vec2 a_texCoord;",
 			"varying vec2 v_texCoord;",
 			"void main() {",
@@ -23,7 +23,7 @@ namespace Pannellum
 			"}"
 		);
 		private readonly string fragmentSrc = String.Join(Environment.NewLine,
-			"#version 120 core",
+			"#version 120",
 			"precision mediump float;",
 
 			"uniform float u_aspectRatio;",
