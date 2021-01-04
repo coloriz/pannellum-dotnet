@@ -1,17 +1,23 @@
-# Pannellum in C# #
+# Pannellum .NET
 
-Pannellum Library binding for C# WPF
+[Pannellum Library](https://github.com/mpetroff/pannellum) written in C# (only part of).
 
-***
+uses WPF as a viewer.
 
 ## Dependencies
+
 - OpenTK (>= 3.0.0-pre)
 - OpenTK.GLControl (>= 3.0.0-pre)
 - OpenCvSharp3 (for reading video frame)
 
-***
+## Projects
 
-## Documentation
+### Pannellum
+
+Panorama rendering library written in C#, it requires OpenTK to make a GL surface in WPF controls. The original project is [https://github.com/mpetroff/pannellum](https://github.com/mpetroff/pannellum).
+
+#### 📃 Documentation
+
 ```csharp
 class EquirecToRect
 ```
@@ -34,6 +40,8 @@ Camera Roll (in radians)
 ```csharp
 public EquirectToRect(GLControl viewer, System.Drawing.Size size, float haov, float vaov, float voffset, float hfov)
 ```
+Initialize renderer.
+
 - viewer : GLControl object
 - size : Size of the viewer
 - haov : Horizontal angle of view (in radians)
@@ -44,10 +52,28 @@ public EquirectToRect(GLControl viewer, System.Drawing.Size size, float haov, fl
 ```csharp
 public void Render(OpenCvSharp.Mat frame)
 ```
+Render the scene based on properties (Pitch, Yaw, Roll, etc...).
+All properties are re-calculated to ensure if they are in valid ranges.
+This method also makes the viewer current context and performs swapping buffers.
+
 - frame : the frame to be rendered
 
-Render the scene based on properties (Pitch, Yaw, Roll, etc...)
+### Pannellum_example
 
-All properties are re-calculated to ensure if they are in valid ranges
+**Controls**
 
-This method also makes the viewer current context and performs swapping buffers
+- ⬅➡ : Yaw
+- ⬆⬇ : Pitch
+- Page Up, Page Down : Roll
+
+**Demo**
+
+![pannellum_demo](docs/pannellum_example.gif)
+
+### FoveInteractiveView
+
+Render the scene based on the pose information of a Fove HMD.
+
+**Demo**
+
+TBD.
